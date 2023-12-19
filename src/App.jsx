@@ -22,7 +22,7 @@ function App() {
         <Route path='/movies/:id' element={<MovieDetails />} />
         <Route path='/tvseries/:id' element={<SerieDetails />} />
         <Route path='/person/:id' element={<ActorDetails />} />
-        {/* <Route path='/*' element={<Navigate to={'/'} />}></Route> */}
+        <Route path='/*' element={<Navigate to={'/'} />}></Route>
       </Routes>
       <InfoMessage />
       <Footer />
