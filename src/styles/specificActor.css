@@ -20,6 +20,12 @@
     align-self: flex-start;
 }
 
+.actorProfile .trendingContainer {
+    align-self: flex-start;
+}
+
+
+
 @media(min-width:1000px) {
     .actorProfile {
         padding: 1rem 6rem;
