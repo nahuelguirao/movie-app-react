@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;500;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: radial-gradient(circle, #443c68, #423a64, #403760, #3e355c, #3c3358, #382f53, #342c4e, #302849, #2a2241, #241d3a, #1e1732, #18122b);
+  color: white;
+  font-family: 'Signika Negative', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  background-color: #443c68;
+  cursor: pointer;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(197, 197, 197);
+  border-radius: 2rem;
+}

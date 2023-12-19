@@ -1,0 +1,102 @@
+main {
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    height: 70vh;
+    position: relative;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #18122b);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-bottom: solid 5px #18122b;
+    cursor: grab;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .8;
+    user-select: none;
+}
+
+.carousel button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.carousel button img {
+    padding: .2rem .5rem;
+    border-radius: 100vmax;
+    background-color: rgba(0, 0, 0, 0.63);
+    width: 15px;
+    opacity: .7;
+}
+
+.left {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+}
+
+.right {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+}
+
+.carouselData {
+    width: 70%;
+    position: absolute;
+    padding: 1rem 2.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 5rem;
+}
+
+.carouselData h2 {
+    margin-top: 3rem;
+    font-size: 1.8rem;
+}
+
+.carouselData p {
+    font-size: .8rem;
+    font-weight: 300;
+    text-align: justify;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.568);
+    padding: .2rem 1rem;
+    border-radius: 1rem;
+}
+
+@media (min-width: 400px) {
+    .carouselData p {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width:1000px) {
+    .carousel {
+        height: 90vh;
+    }
+
+    .carousel button img {
+        width: 35px;
+    }
+
+    .carouselData {
+        padding: 7.5rem 5rem;
+        width: 90%;
+        background-color: transparent;
+    }
+
+    .carouselData p {
+        width: 40%;
+    }
+}
