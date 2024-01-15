@@ -1,10 +1,7 @@
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import { useNavigateActors } from '../../../hooks/useNavigateActors'
 
 export function ActorsContainer({ info }) {
-    //To execute animation once
-    const [ref, inView] = useInView({ triggerOnce: true })
 
     const handleCardClick = useNavigateActors()
     return (
@@ -12,7 +9,7 @@ export function ActorsContainer({ info }) {
             {info.credits.cast.length > 1 && (
                 <>
                     <h3>Cast</h3>
-                    <motion.div className="trendingContainer" ref={ref} animate={inView && { x: [-200, 0] }} transition={{ duration: 1 }}>
+                    <motion.div className="trendingContainer" whileInView={{ opacity: [0, 1] }} viewport={{ once: true }} transition={{ duration: 1 }}>
                         {info.credits.cast && info.credits.cast.map(actor =>
                             actor.profile_path && (
                                 <div className="cardTrending" key={actor.id} onClick={() => handleCardClick(actor.id)}>
