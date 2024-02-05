@@ -1,5 +1,6 @@
 import { useNavigateTvSeries } from "../../hooks/useNavigateTvSeries"
 import { useTopRatedTvSeries } from "../../hooks/useTopRatedTvSeries"
+import { ClickToFav } from "./trendingMovies/ClickToFav"
 import { TvSerieCalification } from "./trendingTvSeries/TvSerieCalification"
 import { TvSerieInfo } from "./trendingTvSeries/TvSerieInfo"
 import { TvSeriePoster } from "./trendingTvSeries/TvSeriePoster"
@@ -10,7 +11,7 @@ export function TopRatedTvSeries() {
     //Gets top rated Tv series
     const topRatedTvSeries = useTopRatedTvSeries()
     //Get specific info about a serie
-    const handleCardClick = useNavigateTvSeries()
+    const { handleCardClick } = useNavigateTvSeries()
     //To execute animation once
     const [ref, inView] = useInView({ triggerOnce: true })
     return (
@@ -20,10 +21,11 @@ export function TopRatedTvSeries() {
                 <motion.div className="trendingContainer" ref={ref} animate={inView && { x: [-200, 0], opacity: [0, 1] }} transition={{ duration: 1 }}>
                     {topRatedTvSeries && (
                         topRatedTvSeries.map(serie => (
-                            <div key={serie.id} className="cardTrending" onClick={() => handleCardClick(serie.id)}>
+                            <div key={serie.id} className="cardTrending">
                                 <TvSeriePoster serie={serie} />
-                                <TvSerieInfo serie={serie} />
+                                <TvSerieInfo serie={serie} handleCardClick={handleCardClick} />
                                 <TvSerieCalification serie={serie} />
+                                <ClickToFav movie={serie} />
                             </div>
                         ))
                     )}

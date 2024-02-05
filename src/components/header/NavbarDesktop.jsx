@@ -10,6 +10,7 @@ export function NavbarDesktop() {
                     <Link to='/'><li>Home</li></Link>
                     <Link to='/movies'><li>Movies</li></Link>
                     <Link to='/tvseries'><li>TV Series</li></Link>
+                    <Link to='/favs'><li>Favs</li></Link>
                 </ul>
             </motion.nav>
         </>

@@ -43,7 +43,7 @@
 }
 
 .infoContainer p {
-    text-align: justify;
+    text-wrap: pretty;
     font-weight: 300;
     opacity: .9;
 }

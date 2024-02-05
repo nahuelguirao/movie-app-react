@@ -4,7 +4,7 @@ import { TvSerieInfo } from "../../home/trendingTvSeries/TvSerieInfo"
 import { TvSerieCalification } from "../../home/trendingTvSeries/TvSerieCalification"
 
 export function SimilarNames({ similar }) {
-    const handleCardClick = useNavigateTvSeries()
+    const { handleCardClick } = useNavigateTvSeries()
 
     return (
         <>

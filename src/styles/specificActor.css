@@ -12,7 +12,7 @@
 }
 
 .actorProfileP {
-    text-align: justify;
+    text-wrap: pretty;
     font-weight: 300;
     min-height: 14vh;
     margin-bottom: 5rem;

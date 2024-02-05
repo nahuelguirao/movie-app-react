@@ -9,5 +9,5 @@ export function useNavigateTvSeries() {
         window.scrollTo(0, 0)
     }
 
-    return handleCardClick
+    return { handleCardClick }
 }

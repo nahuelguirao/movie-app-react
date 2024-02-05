@@ -5,7 +5,7 @@ import { MovieCalification } from "../../home/trendingMovies/MovieCalification"
 import { motion } from 'framer-motion'
 
 export function AppearOnSection({ appear }) {
-    const handleCardClick = useNavigateMovies()
+    const { handleCardClick } = useNavigateMovies()
 
     return (
         <>

@@ -5,6 +5,7 @@ import { TvSerieInfo } from "./TvSerieInfo"
 import { TvSerieCalification } from "./TvSerieCalification"
 import { motion } from 'framer-motion'
 import { useInView } from "react-intersection-observer"
+import { ClickToFav } from "../trendingMovies/ClickToFav"
 
 
 export function HomeTrendingTvSeries() {
@@ -12,7 +13,7 @@ export function HomeTrendingTvSeries() {
     const tvSeries = useTvOnTheAir()
 
     //To open a page with specific info
-    const handleCardClick = useNavigateTvSeries()
+    const { handleCardClick } = useNavigateTvSeries()
 
     //To execute animation once
     const [ref, inView] = useInView({ triggerOnce: true })
@@ -24,10 +25,11 @@ export function HomeTrendingTvSeries() {
                 <motion.div ref={ref} className="trendingContainer" animate={inView && { x: [-200, 0], opacity: [0, 1] }} transition={{ duration: 1 }}>
                     {tvSeries && (
                         tvSeries.map(serie => (
-                            <div key={serie.id} className="cardTrending" onClick={() => handleCardClick(serie.id)}>
+                            <div key={serie.id} className="cardTrending">
                                 <TvSeriePoster serie={serie} />
-                                <TvSerieInfo serie={serie} />
+                                <TvSerieInfo serie={serie} handleCardClick={handleCardClick} />
                                 <TvSerieCalification serie={serie} />
+                                <ClickToFav movie={serie} />
                             </div>
                         ))
                     )}

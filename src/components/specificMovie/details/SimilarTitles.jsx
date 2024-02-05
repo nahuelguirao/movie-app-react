@@ -4,7 +4,7 @@ import { MovieInfo } from "../../home/trendingMovies/MovieInfo"
 import { MovieCalification } from "../../home/trendingMovies/MovieCalification"
 
 export function SimilarTitles({ similar }) {
-    const handleCardClick = useNavigateMovies()
+    const { handleCardClick } = useNavigateMovies()
 
     return (
         <>

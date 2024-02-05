@@ -10,7 +10,7 @@ export function Header() {
 
     return (
         <>
-            <motion.header initial={false} animate={{ height: isMenuOpen ? '30vh' : '10vh', y: [-100, 0] }} transition={{ duration: 0.3, ease: 'easeInOut' }}>
+            <motion.header initial={false} animate={{ height: isMenuOpen ? '40vh' : '10vh', y: [-100, 0] }} transition={{ duration: 0.3, ease: 'easeInOut' }}>
                 <HeaderTitle />
                 <NavbarMobile isMenuOpen={isMenuOpen} handleMenuToggle={handleMenuToggle} />
                 <NavbarDesktop />

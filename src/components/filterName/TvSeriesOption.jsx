@@ -1,14 +1,15 @@
 import { useNavigateTvSeries } from '../../hooks/useNavigateTvSeries'
 import { getCalificationBackground } from '../../helpers/calificationBackground'
 import { motion } from 'framer-motion'
+import { ClickToFav } from '../home/trendingMovies/ClickToFav'
 
 export function TvSeriesOption({ movie }) {
-    const handleCardClick = useNavigateTvSeries()
+    const { handleCardClick } = useNavigateTvSeries()
     return (
         movie.name &&
-        <motion.div key={movie.id} className='card' whileInView={{ opacity: [0, 1] }} transition={{ duration: .5 }} whileHover={{ scale: 1.05 }} onClick={() => handleCardClick(movie.id)}>
+        <motion.div key={movie.id} className='card' whileInView={{ opacity: [0, 1] }} transition={{ duration: .5 }} whileHover={{ scale: 1.05 }} >
             <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`'${movie.name}' poster`} />
-            <div className='data'>
+            <div className='data' onClick={() => handleCardClick(movie.id)}>
                 <h4>{movie.name}</h4>
                 <p>{movie.first_air_date.slice(0, 4)}</p>
             </div>
@@ -17,6 +18,7 @@ export function TvSeriesOption({ movie }) {
                     {movie.vote_average.toFixed(1)}
                 </motion.h4>
             }
+            <ClickToFav movie={movie} />
         </motion.div>
     )
 }
