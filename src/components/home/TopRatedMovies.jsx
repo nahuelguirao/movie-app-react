@@ -1,5 +1,4 @@
 import { useTopRatedMovies } from "../../hooks/useTopRatedMovies"
-import { useNavigateMovies } from "../../hooks/useNavigateMovies"
 import { MoviePoster } from "./trendingMovies/MoviePoster"
 import { MovieInfo } from "./trendingMovies/MovieInfo"
 import { MovieCalification } from "./trendingMovies/MovieCalification"
@@ -10,9 +9,6 @@ import { ClickToFav } from "./trendingMovies/ClickToFav"
 export function TopRatedMovies() {
     //Gets top rated movies
     const topRatedMovies = useTopRatedMovies()
-
-    //Navigates when clicks a card
-    const { handleCardClick } = useNavigateMovies()
 
     //To execute animation once
     const [ref, inView] = useInView({ triggerOnce: true })
@@ -27,7 +23,7 @@ export function TopRatedMovies() {
                             topRatedMovies.map(movie => (
                                 <div key={movie.id} className="cardTrending">
                                     <MoviePoster movie={movie} />
-                                    <MovieInfo movie={movie} handleCardClick={handleCardClick} />
+                                    <MovieInfo movie={movie} />
                                     <MovieCalification movie={movie} />
                                     <ClickToFav movie={movie} />
                                 </div>

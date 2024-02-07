@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { useNavigateTvSeries } from '../../../hooks/useNavigateTvSeries'
 
 export function CarouselData({ actualIndex, data }) {
+    const { handleCardClick } = useNavigateTvSeries()
     return (
         <>
             <motion.img
@@ -10,7 +12,10 @@ export function CarouselData({ actualIndex, data }) {
             />
             <div className='carouselData'>
                 <motion.h2 animate={{ y: [-500, 0] }}>{data[actualIndex].name}</motion.h2>
-                <motion.p animate={{ y: [-500, 0] }}>{data[actualIndex].overview.length > 1 ? data[actualIndex].overview : "This Movie doesn't have an overview"}</motion.p>
+                <div className='carouselButtonContainer'>
+                    <motion.p animate={{ y: [-500, 0] }}>{data[actualIndex].overview.length > 1 ? data[actualIndex].overview : "This Movie doesn't have an overview"}</motion.p>
+                    <button className='carouselButton' onClick={() => handleCardClick(data[actualIndex].id)}>Click for more info</button>
+                </div>
             </div>
         </>
     )

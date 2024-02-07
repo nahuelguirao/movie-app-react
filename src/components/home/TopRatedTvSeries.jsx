@@ -1,4 +1,3 @@
-import { useNavigateTvSeries } from "../../hooks/useNavigateTvSeries"
 import { useTopRatedTvSeries } from "../../hooks/useTopRatedTvSeries"
 import { ClickToFav } from "./trendingMovies/ClickToFav"
 import { TvSerieCalification } from "./trendingTvSeries/TvSerieCalification"
@@ -10,8 +9,7 @@ import { useInView } from "react-intersection-observer"
 export function TopRatedTvSeries() {
     //Gets top rated Tv series
     const topRatedTvSeries = useTopRatedTvSeries()
-    //Get specific info about a serie
-    const { handleCardClick } = useNavigateTvSeries()
+
     //To execute animation once
     const [ref, inView] = useInView({ triggerOnce: true })
     return (
@@ -23,7 +21,7 @@ export function TopRatedTvSeries() {
                         topRatedTvSeries.map(serie => (
                             <div key={serie.id} className="cardTrending">
                                 <TvSeriePoster serie={serie} />
-                                <TvSerieInfo serie={serie} handleCardClick={handleCardClick} />
+                                <TvSerieInfo serie={serie} />
                                 <TvSerieCalification serie={serie} />
                                 <ClickToFav movie={serie} />
                             </div>

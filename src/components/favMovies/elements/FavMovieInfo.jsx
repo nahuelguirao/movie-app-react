@@ -1,11 +1,13 @@
-import { motion } from 'framer-motion'
+import { useNavigateTvSeries } from '../../../hooks/useNavigateTvSeries'
 import { useNavigateMovies } from '../../../hooks/useNavigateMovies'
+import { motion } from 'framer-motion'
 
-export function MovieInfo({ movie }) {
-    //Navigates to a specific movie
-    const { handleCardClick } = useNavigateMovies()
+export function FavMovieInfo({ movie }) {
+    const { handleCardClick: handleMovie } = useNavigateMovies()
+    const { handleCardClick: handleTvSerie } = useNavigateTvSeries()
+
     return (
-        <div className="infoExtra" onClick={() => handleCardClick(movie.id)}>
+        <div className="infoExtra" onClick={movie.title ? () => handleMovie(movie.id) : () => handleTvSerie(movie.id)}>
             <motion.h4 whileInView={{ scale: [0, 1.1, 1] }}>
                 {movie.title ? movie.title : movie.name}
             </motion.h4>

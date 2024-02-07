@@ -1,16 +1,13 @@
 import { useContext } from "react"
 import { FavMoviesContext } from "../../context/FavMoviesContext"
+import { FavMovieInfo } from "./elements/FavMovieInfo"
 import { MoviePoster } from "../home/trendingMovies/MoviePoster"
-import { MovieInfo } from "../home/trendingMovies/MovieInfo"
-import { useNavigateMovies } from "../../hooks/useNavigateMovies"
-import { useNavigateTvSeries } from "../../hooks/useNavigateTvSeries"
 import { TiDeleteOutline } from "react-icons/ti";
+
 import '../../styles/favContent.css'
 
 export function FavMovies() {
     const { favMovies, removeFavMovie } = useContext(FavMoviesContext)
-    const { handleCardClick: handleMovie } = useNavigateMovies()
-    const { handleCardClick: handleTvSerie } = useNavigateTvSeries()
 
     return (
         <section className="favContentSection">
@@ -21,7 +18,7 @@ export function FavMovies() {
                         favMovies.map(movie => (
                             <div key={movie.id} className="favCard" >
                                 <MoviePoster movie={movie} />
-                                <MovieInfo movie={movie} handleCardClick={movie.title ? () => handleMovie(movie.id) : () => handleTvSerie(movie.id)} />
+                                <FavMovieInfo movie={movie} />
                                 <TiDeleteOutline className="deleteIcon" onClick={() => removeFavMovie(movie.id)} />
                             </div>
                         ))

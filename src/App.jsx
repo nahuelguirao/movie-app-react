@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Header } from './components/header/Header'
 import { Home } from './routes/Home'
 import { Movies } from './routes/Movies'
@@ -6,14 +7,19 @@ import { MovieDetails } from './components/specificMovie/MovieDetails'
 import { SerieDetails } from './components/specificTvSeries/SerieDetails'
 import { ActorDetails } from './components/specificActor/ActorDetails'
 import { FavMovies } from './components/favMovies/FavMovies'
-import { InfoMessage } from './components/home/InfoMessage'
 import { Footer } from './components/home/Footer'
 import { Route, Routes, Navigate } from 'react-router-dom'
 import { FavMoviesProvider } from './context/FavMoviesContext'
-import { Toaster } from 'react-hot-toast'
+import toast, { Toaster } from 'react-hot-toast'
 import './styles/App.css'
 
 function App() {
+  useEffect(() => {
+    toast('Scroll down and touch a poster or an actor photo to get more info!', {
+      icon: '💡',
+    });
+  }, [])
+
 
   return (
     <FavMoviesProvider>
@@ -28,9 +34,8 @@ function App() {
         <Route path='/favs' element={<FavMovies />} />
         <Route path='/*' element={<Navigate to={'/'} />}></Route>
       </Routes>
-      <InfoMessage />
       <Footer />
-      <Toaster />
+      <Toaster toastOptions={{ style: { textAlign: 'center' } }} />
     </FavMoviesProvider>
   )
 }

@@ -14,7 +14,6 @@ export function SerieDetails() {
     const { info, trailerKey } = useIndividualSerie(serieId)
     //Gets similar results
     const similar = useSimilarSeries(serieId)
-
     return (
         <>
             {info && (
@@ -22,6 +21,7 @@ export function SerieDetails() {
                     <div className="movieIndividualInfo" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w1280${info.backdrop_path})`, backgroundColor: 'rgba(0, 0, 0, 0.521)' }} />
                     <div className="individualInfo">
                         <motion.img className="individualPoster" src={`https://image.tmdb.org/t/p/w500/${info.poster_path}`} alt={`Poster of ${info.title}`} whileInView={{ scale: [0, 1] }} />
+
                     </div>
                     <div className="infoContainer">
                         <SerieInfo info={info} />

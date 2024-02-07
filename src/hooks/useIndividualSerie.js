@@ -8,7 +8,7 @@ export function useIndividualSerie(serieId) {
         const response = await fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=728da900e98fea5404286dece66133fe&append_to_response=credits,videos`)
         const result = await response.json()
         setInfo(result)
-        setTrailerKey(result.videos.results[0].key)
+        setTrailerKey(result.videos.results[0]?.key)
     }
 
     useEffect(() => {

@@ -75,6 +75,26 @@ main {
     border-radius: 1rem;
 }
 
+.carouselButtonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.carouselButtonContainer button {
+    padding: 10px 15px;
+    background-color: rgb(253, 253, 253);
+    color: rgb(0, 0, 0);
+    border-radius: 100vmax;
+    width: 150px;
+    font-family: 'Signika Negative', sans-serif;
+    transition: 200ms;
+}
+
+.carouselButtonContainer button:hover {
+    transform: scale(1.1);
+}
+
 @media (min-width: 400px) {
     .carouselData p {
         font-size: 1rem;
