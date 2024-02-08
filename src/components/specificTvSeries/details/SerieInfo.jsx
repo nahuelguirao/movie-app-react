@@ -22,7 +22,7 @@ export function SerieInfo({ info }) {
                 </div>
             )}
             <motion.p whileInView={{ scale: [0, 1] }} viewport={{ once: true }} className="overview">{info.overview ? info.overview : "This Tv serie doesn't have an overview."}</motion.p>
-            <motion.p whileInView={{ scale: [0, 1] }} viewport={{ once: true }} whileHover={{ scale: 1.1 }} className='paragraphAddToFav' onClick={() => addFavMovie(info)}>Add To Favs <FaStar /> </motion.p>
+            <motion.p whileInView={{ scale: [0, 1] }} viewport={{ once: true }} className='paragraphAddToFav' onClick={() => addFavMovie(info)}>Add To Favs <FaStar /> </motion.p>
         </>
     )
 }

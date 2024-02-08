@@ -13,7 +13,7 @@ export function NavbarMobile({ isMenuOpen, handleMenuToggle }) {
                             <Link to='/' onClick={handleMenuToggle}><li>Home</li></Link>
                             <Link to='/movies' onClick={handleMenuToggle}><li>Movies</li></Link>
                             <Link to='/tvseries' onClick={handleMenuToggle}><li>TV Series</li></Link>
-                            <Link to='/favs'><li>Favs</li></Link>
+                            <Link to='/favs' onClick={handleMenuToggle}><li>Favs</li></Link>
                         </ul>
                     </motion.nav>
                 )}
